@@ -17,14 +17,14 @@ class CreateClubsTable extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('speciality');
+            $table->string('sport');
             $table->text('description');
             $table->string('address',255);
             $table->string('town',35);
             $table->string('county',35);
-            $table->string('postcode',8);
+            $table->string('postcode');
             $table->string('email');
-            $table->string('phone_number',11);
+            $table->string('phone_number');
             $table->string('images')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
