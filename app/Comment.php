@@ -13,11 +13,11 @@ class Comment extends Model
 
     public function club()
     {
-    	return $this->belongsTo(Club::class);
+    	return $this->belongsTo('App\Club');
     }
 
-    public function User()
+    public function user()
     {
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo('App\User');
     }
 }

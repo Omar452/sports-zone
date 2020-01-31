@@ -6,13 +6,19 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
 
     public function comments()
     {
-    	return $this->hasMany(Comment::class);
+    	return $this->hasMany('App\Comment');
+    }
+
+    public function club()
+    {
+    	return $this->hasOne('App\Club');
     }
 
     /**

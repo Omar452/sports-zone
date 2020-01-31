@@ -6,6 +6,7 @@ use App\Club;
 use Faker\Generator as Faker;
 
 
+
 $factory->define(Club::class, function (Faker $faker) {
         $faker = \Faker\Factory::create();
         $faker->addProvider(new \Bezhanov\Faker\Provider\Team($faker));
@@ -20,6 +21,6 @@ $factory->define(Club::class, function (Faker $faker) {
         'email'=> $faker->safeEmail,
         'phone_number'=> $faker->phoneNumber,
         'images'=> $faker->imageUrl($width = 400, $height = 200, 'sports'),
-        'user_id'=> factory('App\User')->create()
+        'user_id'=> App\User::inRandomOrder()->first()->id,
     ];
 });
