@@ -37126,3 +37126,56 @@ module.exports = __webpack_require__(/*! C:\Users\omar\Desktop\projet5\resources
 /***/ })
 
 /******/ });
+
+//display file name on upload
+$('.custom-file-input').on('change', function() {
+    let fileName = $(this).val().split('\\').pop();
+    let label = $(this).siblings('.custom-file-label');
+    
+    if (label.data('default-title') === undefined) {
+        label.data('default-title', label.html());
+    }
+    
+    if (fileName === '') {
+        label.removeClass("selected").html(label.data('default-title'));
+    } else {
+        label.addClass("selected").html(fileName);
+    }
+});
+
+//navbar desapear on scroll
+$(window).on('scroll', function (e) {
+  $('.navbar')[$(window).scrollTop() >= 100 ? 'removeClass' : 'addClass']('fixed-top');
+});
+
+//display edit comment form
+var editButtons = document.querySelectorAll('.edit-button');
+var editForms = document.querySelectorAll('.edit-form');
+var commentDivs = document.querySelectorAll('.comment-div');
+var cancelButtons = document.querySelectorAll('.cancel-button');
+var editAreas = document.querySelectorAll('.edit-area');
+
+editButtons.forEach(function(editButton, index){
+
+  editButton.addEventListener('click',function(){
+
+    commentDivs[index].classList.add('hidden');
+    editForms[index].classList.add('visible');
+    editAreas[index].focus();
+
+  });
+
+});
+
+cancelButtons.forEach(function(cancelButton, index){
+
+  cancelButton.addEventListener('click',function(){
+
+    commentDivs[index].classList.remove('hidden');
+    editForms[index].classList.remove('visible');
+
+  });
+
+});
+
+

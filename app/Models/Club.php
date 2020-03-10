@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,14 +8,14 @@ class Club extends Model
 {
     //
     protected $fillable = [
-        'name','speciality','description','address',
-        'town','county','postcode', 'email','phone_number',
-        'images','user_id'
+        'name','description','address','sports',
+        'city','county','postcode', 'email','phone_number','price',
+        'likes','dislikes','image','user_id','hasVoted'
     ];
 
     public function comments()
     {
-    	return $this->hasMany('App\Comment');
+    	return $this->hasMany('App\Models\Comment');
     }
 
     public function user()

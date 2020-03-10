@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,12 +8,12 @@ class Comment extends Model
 {
     //
     protected $fillable = [
-        'user_id','name','content','club_id','approved'
+        'user_id','content','club_id','signalments','hasSignaled'
     ];
 
     public function club()
     {
-    	return $this->belongsTo('App\Club');
+    	return $this->belongsTo('App\Models\Club');
     }
 
     public function user()

@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +18,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ClubsController@showUserClubs')->name('home');
+
+Route::resource('clubs', 'ClubsController');
+
+Route::put('/like/{club}', 'ClubsController@likeClub')->name('clubs.like');
+
+Route::put('/dislike/{club}', 'ClubsController@dislikeClub')->name('clubs.dislike');
+
+Route::post('/comments/store/{club}','CommentsController@store')->name('comments.store');
+
+Route::put('/comments/update/{comment}','CommentsController@update')->name('comments.update');
+
+Route::delete('/comments/{comment}','CommentsController@destroy')->name('comments.destroy');
+
+Route::put('/comments/signal/{comment}', 'CommentsController@signal')->name('comments.signal');

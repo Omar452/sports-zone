@@ -18,11 +18,11 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('name');
             $table->text('content');
             $table->unsignedBigInteger('club_id');
             $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade');
-            $table->boolean('approved');
+            $table->integer('signalments')->default(0);
+            $table->string('hasSignaled')->nullable();
             $table->timestamps();
         });
     }

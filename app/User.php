@@ -13,12 +13,12 @@ class User extends Authenticatable
 
     public function comments()
     {
-    	return $this->hasMany('App\Comment');
+    	return $this->hasMany('App\Models\Comment');
     }
 
-    public function club()
+    public function clubs()
     {
-    	return $this->hasOne('App\Club');
+    	return $this->hasMany('App\Models\Club');
     }
 
     /**

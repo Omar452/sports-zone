@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+@section('banner_button')
+    <a class="btn btn-primary btn-lg" href="{{ url('/') }}"><i class="fas fa-home"></i></i> Return to home page</a>
+@endsection
+
+@include('/partials/_header_banner')
+
+<div class="container log-div">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
