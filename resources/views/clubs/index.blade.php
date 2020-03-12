@@ -14,26 +14,26 @@
         @include('partials/_alerts')
     </div>
 
-    <div class="row p-5 justify-content-center">
+    <div class="row p-2 justify-content-center">
         <h1>CLUBS</h1>
     </div>    
 
     <div class="container">
         <div class="row clubs-div justify-content-center">
-            <form class="d-flex align-items-center"  method="GET" action="{{ route('clubs.index') }}">
+            <form class="d-flex align-items-center search-bar"  method="GET" action="{{ route('clubs.index') }}">
 
                 <div class="d-flex align-items-center px-2">
-                    <label for="sport-input">Sport</label>
+                    <label class="p-1" for="sport-input">Sport</label>
                     <input class="form-control" id="sport-input" type="text" name="sports">
                 </div>
                 
                 <div class="d-flex align-items-center px-2">
-                    <label for="city-input">City</label>
+                    <label class="p-1" for="city-input">City</label>
                     <input class="form-control" id="city-input" type="text" name="city">
                 </div>
 
                 <div class="d-flex align-items-center px-2">
-                    <label for="county-input">County</label>
+                    <label class="p-1" for="county-input">County</label>
                     <input class="form-control" id="county-input" type="text" name="county">
                 </div>
 

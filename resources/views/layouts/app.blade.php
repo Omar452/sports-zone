@@ -26,14 +26,15 @@
 <body>
     
 
-@include('partials/_header')
+    @include('partials/_header')
 
-@yield('content')
+    @yield('content')
 
-<div class="fluid">
-    <div class="row">
-        @include('partials/_footer')
+    <div class="fluid">
+        <div class="row">
+            @include('partials/_footer')
+        </div>
     </div>
-</div>
+    
 </body>
 </html>

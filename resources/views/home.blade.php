@@ -12,11 +12,11 @@
     @include('partials/_alerts')
 </div>
 
-<div class="container my-5">
+<div class="container log-div my-5">
     <div class="row justify-content-center">
         <div class="col-md-12">
 
-            <h1 class="text-center">Your club(s): {{$clubs->count()}}</h1>
+            <h1 class="text-center">Your clubs: {{$clubs->count()}}</h1>
 
             @include('/partials/_clubs_list')
 

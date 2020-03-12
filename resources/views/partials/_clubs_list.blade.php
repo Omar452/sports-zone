@@ -29,16 +29,16 @@
     <div class="container">
         <div class="clubs-div">
             <div class="row">           
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-lg-5">
                     @if(!empty($club->image))
                     <img class="img-fluid" src="{{  asset("storage/" . $club->image) }}" alt="club picture">
                     @else
                     <img class="img-fluid" src="{{  url('images/sport.jpg') }}" alt="club picture">
                     @endif
                 </div>
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-lg-7 club-info">
                     <div class="row d-flex">
-                        <a class="clubs-link pr-2" href="{{ route('clubs.show',['club' => $club->id]) }}">{{$club->name}}</a>
+                        <a class="club-name pr-2" href="{{ route('clubs.show',['club' => $club->id]) }}">{{$club->name}}</a>
                     </div>
                     <div class="row py-3">
                         <div class="pr-1">

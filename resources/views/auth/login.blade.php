@@ -5,7 +5,7 @@
 @section('content')
 
 @section('banner_button')
-    <a class="btn btn-primary btn-lg" href="{{ url('/') }}"><i class="fas fa-home"></i></i> Return to home page</a>
+    <a class="btn btn-primary btn-sm" href="{{ url('/') }}"><i class="fas fa-home"></i></i> Return to home page</a>
 @endsection
 
 @include('/partials/_header_banner')

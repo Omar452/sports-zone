@@ -132,7 +132,7 @@
               <form method="POST" action="{{route('comments.destroy', $comment)}}">
                   {{ csrf_field() }}
                   {{ method_field('DELETE') }}
-                  <input type="submit" class="btn btn-danger" data-toggle="modal" data-target="#myModal" value="Delete my club"> 
+                  <input type="submit" class="btn btn-danger" data-toggle="modal" data-target="#myModal" value="Delete my comment"> 
               </form>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
@@ -148,7 +148,11 @@
 
         <div class="d-flex align-items-baseline col-12">
           <p class="text-primary pr-2"> {{$comment->user->name}}</p>
-          <p class="italic">posted the {{$comment->created_at->format('d/m/Y')}}</p>
+          @if($comment->created_at == $comment->updated_at )
+          <p class="italic">{{$comment->created_at->format('d/m/Y')}}</p>
+          @else
+          <p class="italic">{{$comment->updated_at->format('d/m/Y')}} (edited)</p>
+          @endif
         </div>
         <div class="col-12 comment-div">
           <div class="col-12">
@@ -157,6 +161,8 @@
           <div class="col-12 d-flex  justify-content-between">
             <div>
               @if($comment->signalments > 0)
+              <p class="text-danger italic m-0 pt-2"><i class="fas fa-exclamation-triangle"></i> Signaled {{$comment->signalments}} time</p>
+              @elseif($comment->signalments > 1)
               <p class="text-danger italic m-0"><i class="fas fa-exclamation-triangle"></i> Signaled {{$comment->signalments}} times</p>
               @endif
             </div>
@@ -166,7 +172,7 @@
                 @csrf
                 <button class="btn btn-link btn-sm"><i class="fas fa-ban"></i> Signal</button>
               </form>
-              @if(Auth::user()->id == $club->user_id)
+              @if(Auth::user()->id == $comment->user_id)
               <button class="btn btn-link btn-sm edit-button"><i class="fas fa-edit"></i> Edit</button> 
               <button class="btn btn-link btn-sm" type="button" data-toggle="modal" data-target="#myCommentModal"><i class="fas fa-trash-alt"></i> Delete</button>
               @endif

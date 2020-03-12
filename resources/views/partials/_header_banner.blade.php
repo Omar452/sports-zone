@@ -1,8 +1,8 @@
 <div class="fluid">
     <div class="fluid">
-        <img class="img-fluid" src="{{url('/images/barre.jpg')}}" alt="">
+        <img class="img-fluid gym-img" src="{{url('/images/barre.jpg')}}" alt="">
     </div>
-    <div  id="clubs-title" class="row justify-content-center">
+    <div class="row justify-content-center p-2">
         @yield('banner_button')
     </div>        
 </div>

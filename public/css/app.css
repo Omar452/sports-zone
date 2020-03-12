@@ -1,12 +1,17 @@
 /*GENERAL*/
 html{
   width:100%;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 body{
   width:100%;
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
 }
 
 
@@ -30,10 +35,25 @@ body{
   color:#0892d0;
 }
 
+@media (max-width: 575px){
+  #logo{
+    font-size: 2em;
+  }
+
+}
+
 .fa-bolt{
   color:#fec901;
   transform: rotate(20deg);
 }
+
+@media (max-width: 575px){
+  .navbar-links, .dropdown-toggle{
+    padding-left:10px !important;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
+
 
 nav .nav-link{
   font-size: 1.2em;
@@ -57,13 +77,42 @@ nav .nav-link{
   background-color: transparent;
 }
 
-/*HOME-PAGE*/
+/*BANNER*/
+
+.banner{
+  padding: 0;
+}
+
+
+.div-img{
+  padding: 0;
+}
+
 .gym-img{
   -webkit-filter: brightness(70%);
 }
 
+@media(max-width: 1080px){
+  .div-img{
+    height:100vh;
+  }
+  .gym-img{
+    min-width:160% ;
+    min-height:100% ;
+  }
+  
+}
 
-/*BANNER*/
+@media(min-width: 1080px){
+  .div-img{
+    height:100vh;
+  }
+  .gym-img{
+    min-width:100% ;
+    min-height:100% ;
+  }
+}
+
 
 .banner-txt{
   color: white;
@@ -87,10 +136,45 @@ nav .nav-link{
   font-size: 1.1em;
 }
 
-/*CLUBS MAIN*/
-#clubs-title{
-  margin-top:-20px;
+@media (min-width: 1600px) {
+  .banner-txt {
+    left:20%;
+  }
 }
+
+@media (max-width: 500px) {
+
+  .banner-txt{
+    left:0;
+    text-align: center;
+    padding: 0;
+  }
+
+  .banner-txt h1{
+    padding: 0.5em 0;
+    font-size: 4em;
+  }
+  
+  .banner-txt p{
+    font-size: 1em;
+  }
+  
+  .banner-txt a{
+    margin-right: 0;
+    font-size: 1em;
+  }
+  
+}
+
+@media (max-width: 400px) {
+
+  .banner-txt h1{
+    font-size: 3em;
+  }
+  
+}
+
+/*CLUBS MAIN*/
 
 .clubs-div{
   background-color: #EEE;
@@ -99,8 +183,41 @@ nav .nav-link{
   box-shadow: 5px 5px 10px #AAA;
 }
 
-.clubs-link{
-  font-size: 1.3em;
+.club-name{
+  font-size: 2em;
+}
+
+@media (max-width: 768px){
+  .club-info{
+    margin-left:20px;
+  }
+
+  .club-name{
+    font-size: 1.5em;
+  }
+  
+}
+
+@media (max-width: 550px){
+  .search-bar{
+    display:flex;
+    flex-direction: column;
+    line-height: 40px;
+  }
+}
+
+/*FORM*/
+.agreement{
+  transform: scale(2);
+}
+
+.error-message{
+  font-size:0.5em;
+}
+
+.danger{
+  color:#DC3545;
+  font-weight: bold;
 }
 
 /*LOG*/
@@ -126,6 +243,14 @@ footer a{
   color: #6c757d;
 }
 
+@media (max-width: 1024px){
+  .info{
+    line-height: 12px;
+    margin-top:30px;
+  }
+
+}
+
 /*COMMENTS*/
 
 .italic{
@@ -140,6 +265,8 @@ footer a{
 .visible{
   display: block;
 }
+
+
 
 
 

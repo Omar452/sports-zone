@@ -12,20 +12,26 @@
 |
 */
 
+//HOME PAGE ROUTE
 Route::get('/', function () {
     return view('welcome');
 });
 
+//USER ROUTES
 Auth::routes();
 
 Route::get('/home', 'ClubsController@showUserClubs')->name('home');
 
+
+
+// CLUBS ROUTES
 Route::resource('clubs', 'ClubsController');
 
 Route::put('/like/{club}', 'ClubsController@likeClub')->name('clubs.like');
 
 Route::put('/dislike/{club}', 'ClubsController@dislikeClub')->name('clubs.dislike');
 
+// COMMENTS ROUTES
 Route::post('/comments/store/{club}','CommentsController@store')->name('comments.store');
 
 Route::put('/comments/update/{comment}','CommentsController@update')->name('comments.update');
