@@ -44,14 +44,16 @@
                         <div class="pr-1">
                             <a class="btn btn-primary btn-sm align-text-bottom" href="{{ route('clubs.show',['club' => $club->id]) }}"><i class="fas fa-eye"></i> Show</a>
                         </div>
-                        @if(Auth::user()->id == $club->user_id)
+                        @can('update',$club)
                         <div  class="pr-1">
                             <a class="btn btn-warning btn-sm" href="{{route('clubs.edit', $club)}}"><i class="fas fa-edit"></i> Edit</a>
                         </div>
+                        @endcan
+                        @can('delete',$club)
                         <div>
                             <button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Delete</button>                                        
                         </div> 
-                        @endif                                                                                 
+                        @endcan                                                                                 
                     </div>
                     <div class="row d-flex">
                         <div class="d-flex align-items-start mr-3">      

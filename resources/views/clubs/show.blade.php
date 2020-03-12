@@ -44,12 +44,15 @@
       <div class="row py-3 justify-content-center">
         <h1>{{$club->name}}</h1>
       </div>
-      @if(Auth::user()->id == $club->user_id)
       <div>
-        <a class="btn btn-warning" href="{{route('clubs.edit', $club)}}"><i class="fas fa-edit"></i> Edit</a> 
-        <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Delete</button>      
+        @can('update',$club)
+        <a class="btn btn-warning" href="{{route('clubs.edit', $club)}}"><i class="fas fa-edit"></i> Edit</a>
+        @endcan
+        @can('delete',$club)
+        <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Delete</button>
+        @endcan  
       </div>
-      @endif
+      
       <div class="fluid text-center my-3">
         @if(!empty($club->image))
         <img class="img-fluid" src="{{  asset("storage/" . $club->image) }}" alt="club picture">
@@ -172,10 +175,12 @@
                 @csrf
                 <button class="btn btn-link btn-sm"><i class="fas fa-ban"></i> Signal</button>
               </form>
-              @if(Auth::user()->id == $comment->user_id)
+              @can('update',$comment)
               <button class="btn btn-link btn-sm edit-button"><i class="fas fa-edit"></i> Edit</button> 
+              @endcan
+              @can('delete',$comment)
               <button class="btn btn-link btn-sm" type="button" data-toggle="modal" data-target="#myCommentModal"><i class="fas fa-trash-alt"></i> Delete</button>
-              @endif
+              @endcan
             </div>
           </div>
         </div>
