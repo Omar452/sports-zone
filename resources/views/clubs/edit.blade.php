@@ -10,14 +10,13 @@
 
 <div class="fluid">
     <div class="row p-5 justify-content-center">
-        <h1>Add a new club</h1>
+        <h1>Edit my club</h1>
     </div>
 </div>    
 
 
 <div class="container mb-5">
     <div class="card clubs-div">
-        <div class="card-header">{{ __('Edit a club') }}</div>
         <div class="card-body">
             <form method="POST" action="{{ route('clubs.update', $club) }}" enctype="multipart/form-data">
                 @csrf

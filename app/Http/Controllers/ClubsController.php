@@ -165,6 +165,8 @@ class ClubsController extends Controller
         $this->authorize('update', $club);
         $myClub = Club::findOrFail($club->id);
 
+        
+
         request()->validate([
             'agreement' => ['accepted'],
             'name' => ['required','string'],
@@ -177,10 +179,18 @@ class ClubsController extends Controller
             'phone_number' => ['required'],
             'email' => ['required','email:rfc,dns'],
             'price' => ['required','numeric','max:100'],
-            'image' => ['required','image','max:2048']
+            'image' => ['image','max:2048']
         ]);
 
-        $imagePath = $request->image->store('uploads', 'public');
+        if($request->hasFile('image')){
+            $imagePath = $request->image->store('uploads', 'public');
+            $myClub->update([
+                'image' => $imagePath,
+                ]);
+            
+        }
+
+        
 
         $myClub->update([
             'name' => $request->name,
@@ -193,7 +203,6 @@ class ClubsController extends Controller
             'phone_number' => $request->phone_number,
             'email' => $request->email,
             'price' => $request->price,
-            'image' => $imagePath,
             'user_id'=> Auth::user()->id
         ]);
 
